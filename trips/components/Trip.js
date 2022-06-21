@@ -2,13 +2,16 @@ import React from "react";
 import { Text, Image, View, StyleSheet, TouchableOpacity } from "react-native";
 import tripStore from "../stores/tripStore";
 
-export function Trip({ trip, onPress }) {
+export default function Trip({ trip, navigation }) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate("TripDetails")}
+    >
       <Image style={styles.thumb} source={trip.image} />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}>{trip.name}</Text>
-        <Text style={styles.price}>$ {trip.price}</Text>
+        <Text style={styles.title}>{trip.title}</Text>
+        <Text style={styles.Description}>{trip.Description}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -37,11 +40,11 @@ const styles = StyleSheet.create({
   infoContainer: {
     padding: 16,
   },
-  name: {
+  title: {
     fontSize: 22,
     fontWeight: "bold",
   },
-  price: {
+  Description: {
     fontSize: 16,
     fontWeight: "600",
     marginBottom: 8,

@@ -1,20 +1,26 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import "react-native-gesture-handler";
-import { HomePage } from "./components/HomePage";
-import { NotificationsScreen } from "./components/NotificationsScreen";
-import tripStore from "./stores/tripStore";
-
-const Drawer = createDrawerNavigator();
+import Trip from "./components/Trip";
+import { Text, View } from "react-native";
+import TripList from "./components/TripList";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import TripDetails from "./components/TripDetail";
+const Stack = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home" component={HomePage}>
-        <Drawer.Screen name="Home" component={HomePage} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
-      </Drawer.Navigator>
+      <Navigator initialRouteName="Home">
+        <Screen name="Home" component={TripList} />
+        {/* <Screen name="TripDetail" component={TripDetail} /> */}
+        <Screen
+          name="TripDetails"
+          component={TripDetails}
+          options={({ route }) => ({ title: route.params.trip.title })}
+        />
+      </Navigator>
     </NavigationContainer>
   );
 }
