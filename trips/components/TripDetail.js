@@ -8,19 +8,21 @@ import {
   Button,
   StyleSheet,
 } from "react-native";
+import { observer } from "mobx-react";
+import tripStore from "../stores/TripStore";
 
-import tripStore from "../stores/tripStore";
+function TripDetails({ route }) {
+  const { trip, id } = route.params;
+  const trips = tripStore.fetchTrip(id);
 
-export function TripDetail({ route }) {
-  const trip = tripStore.getTripById(route.params.id);
   return (
     <SafeAreaView>
       <ScrollView>
-        <Image style={styles.image} source={trip.image} />
+        <Image style={styles.image} source={trips.image} />
+
         <View style={styles.infoContainer}>
-          <Text style={styles.name}>{trip.name}</Text>
-          <Text style={styles.price}>$ {trip.price}</Text>
-          <Text style={styles.description}>{trip.description}</Text>
+          <Text style={styles.title}>{trips.title}</Text>
+          <Text style={styles.description}>{trips.description}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -52,11 +54,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
   },
-  price: {
-    fontSize: 16,
-    fontWeight: "600",
-    marginBottom: 8,
-  },
   description: {
     fontSize: 16,
     fontWeight: "400",
@@ -64,3 +61,4 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 });
+export default observer(TripDetails);
