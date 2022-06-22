@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, Image, View, StyleSheet, TouchableOpacity } from "react-native";
-import tripStore from "../stores/tripStore";
 
 export default function Trip({ trip, navigation }) {
+  // ! you didn't pass trip
   return (
     <TouchableOpacity
       style={styles.card}
-      onPress={() => navigation.navigate("TripDetails")}
+      onPress={() => navigation.navigate("TripDetails", { trip: trip })}
     >
       <Image style={styles.thumb} source={trip.image} />
       <View style={styles.infoContainer}>

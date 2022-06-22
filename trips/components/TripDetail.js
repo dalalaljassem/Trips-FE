@@ -9,20 +9,20 @@ import {
   StyleSheet,
 } from "react-native";
 import { observer } from "mobx-react";
-import tripStore from "../stores/TripStore";
+import tripStore from "../stores/tripStore"; // ! you were fetching TripStore instead of tripStore
 
 function TripDetails({ route }) {
   const { trip, id } = route.params;
-  const trips = tripStore.fetchTrip(id);
+  const trips = tripStore.fetchTrip(id); // ! why? you're supposed to use trip
 
   return (
     <SafeAreaView>
       <ScrollView>
-        <Image style={styles.image} source={trips.image} />
+        <Image style={styles.image} source={trip.image} />
 
         <View style={styles.infoContainer}>
-          <Text style={styles.title}>{trips.title}</Text>
-          <Text style={styles.description}>{trips.description}</Text>
+          <Text style={styles.title}>{trip.title}</Text>
+          <Text style={styles.description}>{trip.description}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

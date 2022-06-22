@@ -6,7 +6,6 @@ import TripList from "./components/TripList";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import TripDetails from "./components/TripDetail";
-const Stack = createStackNavigator();
 const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
