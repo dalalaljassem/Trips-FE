@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     padding: 16,
+    alignItems: "center",
   },
   name: {
     fontSize: 22,
