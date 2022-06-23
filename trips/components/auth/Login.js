@@ -23,7 +23,9 @@ const Login = ({ navigation }) => {
   return (
     <>
       <SafeAreaView>
-        <Text h2>🗺 Trips</Text>
+        <Text style={{ textAlign: "center", margin: 40 }} h2>
+          🗺 Trips
+        </Text>
         <Input
           onChangeText={(email) => {
             setUser({ ...user, email });
@@ -38,9 +40,14 @@ const Login = ({ navigation }) => {
           placeholder="Password"
           secureTextEntry={true}
         />
-        <Button onPress={handleSubmit}>Login</Button>
-        <Text>Don’t have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.replace("Register")}>
+        <Button style={{ margin: 5 }} onPress={handleSubmit}>
+          Login
+        </Button>
+        <Text style={{ margin: 5 }}>Don’t have an account? </Text>
+        <TouchableOpacity
+          style={{ margin: 5 }}
+          onPress={() => navigation.replace("Register")}
+        >
           <Text style={{ color: "blue" }}>Register</Text>
         </TouchableOpacity>
       </SafeAreaView>
