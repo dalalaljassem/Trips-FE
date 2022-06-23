@@ -39,9 +39,9 @@ class TripStore {
     }
   };
 
-  tripCreate = async () => {
+  tripCreate = async (tripData) => {
     try {
-      const response = await instance.post("/trips");
+      const response = await instance.post("/trips", tripData);
       this.trips = response.data;
     } catch (error) {
       console.log("TripStore -> tripGet -> error", error);

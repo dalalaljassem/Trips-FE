@@ -15,13 +15,18 @@ const { Navigator, Screen } = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="Login">
+      {/* <Navigator initialRouteName="Login"> */}
+      <Navigator initialRouteName="TripAddModal">
         <Screen
           name="Login"
           component={Login}
           options={{ headerShown: false }}
         />
-        <Screen name="TripAddModal" component={TripAddModal} />
+        <Screen
+          name="TripAddModal"
+          component={TripAddModal}
+          options={{ headerShown: false }}
+        />
         <Screen
           name="Register"
           component={Register}
