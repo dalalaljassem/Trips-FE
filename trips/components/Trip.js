@@ -2,13 +2,13 @@ import React from "react";
 import { Text, Image, View, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Trip({ trip, navigation }) {
-  // ! you didn't pass trip
+  // ! you didn't pass trip, you need to pass uri in source
   return (
     <TouchableOpacity
       style={styles.card}
       onPress={() => navigation.navigate("TripDetails", { trip: trip })}
     >
-      <Image style={styles.thumb} source={trip.image} />
+      <Image style={styles.thumb} source={{ uri: trip.image }} />
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{trip.title}</Text>
         <Text style={styles.Description}>{trip.Description}</Text>
