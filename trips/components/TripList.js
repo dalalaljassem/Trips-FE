@@ -1,16 +1,9 @@
 import React, { useEffect } from "react";
 import tripStore from "../stores/tripStore";
 import Trip from "./Trip";
-import TripAddModal from "./TripAddModal";
+import { Plus } from "react-native-feather";
 import { observer } from "mobx-react";
-import {
-  Text,
-  View,
-  Button,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { View, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import authStore from "../stores/authStore";
 
 function TripList({ navigation }) {
@@ -35,7 +28,6 @@ function TripList({ navigation }) {
       />
     );
   }
-  //   <FAB title="Create" />;
   return (
     <View>
       <FlatList
@@ -44,15 +36,13 @@ function TripList({ navigation }) {
         data={tripStore.trips}
         renderItem={TripItem}
       />
-      <TouchableOpacity style={styles.fab}>
-        <Button
-          style={styles.fabIcon}
-          onPress={() => {
-            navigation.navigate("TripAddModal");
-          }}
-        >
-          +
-        </Button>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("TripAddModal");
+        }}
+        style={styles.fab}
+      >
+        <Plus color={"white"} />
       </TouchableOpacity>
     </View>
   );
