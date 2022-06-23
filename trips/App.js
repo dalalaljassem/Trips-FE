@@ -16,7 +16,7 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* <Navigator initialRouteName="Login"> */}
-      <Navigator initialRouteName="TripAddModal">
+      <Navigator initialRouteName="Login">
         <Screen
           name="Login"
           component={Login}
