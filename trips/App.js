@@ -1,6 +1,6 @@
 import * as React from "react";
 import "react-native-gesture-handler";
-import Trip from "./components/Trip";
+import { LogOut } from "react-native-feather";
 import { Text, TouchableOpacity } from "react-native";
 import TripList from "./components/TripList";
 import Login from "./components/auth/Login";
@@ -37,8 +37,11 @@ export default function App() {
           component={TripList}
           options={{
             headerRight: () => (
-              <TouchableOpacity onPress={() => authStore.signout()}>
-                <Text>Sign out</Text>
+              <TouchableOpacity
+                style={{ padding: 10 }}
+                onPress={() => authStore.signout()}
+              >
+                <LogOut />
               </TouchableOpacity>
             ),
           }}
