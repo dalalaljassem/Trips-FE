@@ -15,6 +15,10 @@ function TripDetails({ route }) {
   const { trip, id } = route.params;
   const trips = tripStore.fetchTrip(id); // ! why? you're supposed to use trip
 
+  handleSubmit = (values) => {
+    console.log("updates");
+  };
+
   return (
     <SafeAreaView>
       <ScrollView>
@@ -25,6 +29,7 @@ function TripDetails({ route }) {
           <Text style={styles.description}>{trip.description}</Text>
         </View>
       </ScrollView>
+      <Button onPress={handleSubmit} title="Update" />
     </SafeAreaView>
   );
 }
