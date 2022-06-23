@@ -18,7 +18,7 @@ function TripDetails({ route }) {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Image style={styles.image} source={trip.image} />
+        <Image style={styles.image} source={{ uri: trip.image }} />
 
         <View style={styles.infoContainer}>
           <Text style={styles.title}>{trip.title}</Text>
