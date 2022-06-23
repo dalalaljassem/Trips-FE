@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import tripStore from "../stores/tripStore";
 import Trip from "./Trip";
 import TripAddModal from "./TripAddModal";
@@ -11,8 +11,15 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+import authStore from "../stores/authStore";
 
 function TripList({ navigation }) {
+  useEffect(() => {
+    if (!authStore.user) {
+      navigation.replace("Login");
+    }
+  }, [authStore.user]);
+
   function TripItem({ item: trip }) {
     return (
       <Trip

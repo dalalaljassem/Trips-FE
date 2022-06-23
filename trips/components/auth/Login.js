@@ -41,7 +41,7 @@ const Login = ({ navigation }) => {
         <Button onPress={handleSubmit}>Login</Button>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace("Register")}>
-          <Text style={{ color: "blue", flexDirection: "row" }}>Sign up</Text>
+          <Text style={{ color: "blue" }}>Register</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
